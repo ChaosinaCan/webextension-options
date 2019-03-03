@@ -1,0 +1,43 @@
+/* Defaults (light theme) */
+
+:root,
+:host {
+    --opera-focus_-_box-shadow: var(--focus-box-shadow);
+    --opera-focus_-_transition: box-shadow 0.3s;
+
+    --settings-control-label-spacing: 20px;
+    --settings-row-min-height: 48px;
+
+    --cr-icon-size: 20px;
+    --cr-icon-ripple-size: 24px;
+    --cr-radio-button-size: 16px;
+    --cr-radio-button-border-width: 2px;
+
+    --cr-dialog-native_-_background-color: var(--opera-secondary-background-color);
+    --cr-dialog-native_-_border: 1px solid var(--opera-separator-color);
+    --cr-dialog-native_-_border-radius: var(--opera-pad-border-radius);
+    --cr-dialog-native_-_box-shadow: var(--opera-pad-shadow);
+    --cr-dialog-native_-_color: var(--opera-font-color);
+    --cr-dialog-native_-_max-width: 80%;
+
+    --opera-button-border-color-hover: #cdcdd4;
+    --opera-input-background-color-hover: #fafafa;
+    --opera-primary-button-border-color-hover: #008ae6;
+    --opera-primary-button-background-color-hover: #008ae6;
+
+    --spinner-background-color-hover: rgba(0, 0, 0, 0.08);
+    --spinner-arrows-image: url('arrow_up_down_light.svg');
+}
+
+/* Dark theme */
+
+:root.dark-theme,
+:host-context(.dark-theme) {
+    --opera-button-border-color-hover: #404547;
+    --opera-input-background-color-hover: #494c4f;
+    --opera-primary-button-border-color-hover: #49baf2;
+    --opera-primary-button-background-color-hover: #49baf2;
+
+    --spinner-background-color-hover: rgba(0, 0, 0, 0.15);
+    --spinner-arrows-image: url('arrow_up_down_dark.svg');
+}

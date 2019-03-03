@@ -1,0 +1,38 @@
+{
+  "name": "@spadin/webextension-options",
+  "version": "1.0.0",
+  "description": "Helper for creating a browser extension options page using @spadin/webextension-storage",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && gulp",
+    "watch-ts": "tsc --watch",
+    "watch-css": "gulp watch",
+    "relink": "npm link @spadin/webextension-storage && npm link @spadin/webextension-plural && npm link @spadin/tsconfig",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joel Spadin <joelspadin@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@spadin/webextension-plural": "^1.0.0",
+    "@spadin/webextension-storage": "^1.0.0",
+    "detect-browser": "^4.1.0",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-modal": "^3.8.1",
+    "react-radio-group": "^3.0.3",
+    "react-textarea-autosize": "^7.1.0",
+    "webextension-polyfill-ts": "^0.8.9"
+  },
+  "devDependencies": {
+    "@spadin/tsconfig": "^1.0.0",
+    "@types/detect-browser": "^3.0.0",
+    "@types/node": "^11.9.4",
+    "@types/react": "^16.8.4",
+    "@types/react-dom": "^16.8.2",
+    "@types/react-modal": "^3.8.1",
+    "@types/react-radio-group": "^3.0.2",
+    "@types/react-textarea-autosize": "^4.3.3",
+    "gulp": "^4.0.0",
+    "typescript": "^3.3.3333"
+  }
+}

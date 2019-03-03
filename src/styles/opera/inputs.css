@@ -1,0 +1,455 @@
+@import "vars.css";
+@import "extra_vars.css";
+
+.input {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+}
+
+.input label {
+    flex: 1;
+    padding: 12px 0;
+    padding-inline-start: 20px;
+    padding-inline-end: var(--settings-control-label-spacing);
+}
+
+.input label .secondary {
+    display: block;
+}
+
+.expand > .settings-row > .input:first-child label {
+    padding-inline-start: 0;
+}
+
+.input:last-child > *:last-child {
+    margin-right: 20px;
+}
+
+.input.reset:not(:only-child) {
+    flex: 0;
+}
+
+.checkbox label,
+.text label,
+.textarea label,
+.select label,
+.radio-group label {
+    cursor: pointer;
+}
+
+/* TODO: apply only when focused via keyboard */
+html {
+    --focus-box-shadow: 0 0 0 3px var(--opera-focus-outline-color);
+}
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: var(--opera-focus_-_box-shadow);
+    transition: var(--opera-focus_-_transition);
+}
+
+input:out-of-range {
+    border-color: var(--opera-red) !important;
+}
+
+/* ==== Checkbox ==== */
+
+input[type=checkbox] {
+    position: relative;
+    width: var(--opera-switch-width);
+    height: var(--opera-switch-height);
+
+    -webkit-appearance: none;
+    background-color: var(--opera-switch-color);
+    border-radius: calc(var(--opera-switch-height) / 2);
+    transition: 0.25s ease in-out;
+    cursor: pointer;
+}
+
+input[type=checkbox]:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+input[type=checkbox]:hover {
+    background-color: var(--opera-switch-color-hover);
+}
+
+input[type=checkbox]:active {
+    background-color: var(--opera-switch-color-pressed);
+}
+
+input[type=checkbox]:checked {
+    background-color: var(--opera-switch-active-color);
+}
+
+input[type=checkbox]:checked:hover {
+    background-color: var(--opera-switch-active-color-hover);
+}
+
+input[type=checkbox]:checked:active {
+    background-color: var(--opera-switch-active-color-pressed);
+}
+
+input[type=checkbox]::after {
+    --toggle-easing: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    background-color: var(--opera-switch-toggle-color);
+
+    content: '';
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 4px;
+
+    box-shadow: none;
+    height: calc(var(--opera-switch-height) - 6px);
+    width: calc(var(--opera-switch-height) - 6px);
+    border-radius: 50%;
+
+    transition: background 0.2s ease-out, transform 0.2s var(--toggle-easing);
+}
+
+input[type=checkbox]:checked::after {
+    transform: translate3d(18px, 0, 0);
+}
+
+/* ==== Radio Buttons ==== */
+
+.radio-group {
+    margin: 0;
+    padding: 0;
+    border: none;
+    flex: 1;
+}
+
+.radio-group > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.radio-group > div > label {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: var(--settings-row-min-height);
+}
+
+input[type=radio] {
+    position: relative;
+    box-sizing: border-box;
+    height: var(--cr-radio-button-size);
+    width: var(--cr-radio-button-size);
+
+    -webkit-appearance: none;
+
+    border: var(--cr-radio-button-border-width) solid var(--opera-switch-color);
+    border-radius: 50%;
+    cursor: pointer;
+
+    margin: 0;
+    margin-inline-end: 20px;
+}
+
+input[type=radio]:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+input[type=radio]:hover {
+    border-color: var(--opera-switch-color-hover);
+}
+
+input[type=radio]:active {
+    border-color: var(--opera-switch-color-pressed);
+}
+
+input[type=radio]:checked {
+    border-color: var(--opera-switch-active-color);
+}
+
+input[type=radio]:checked:hover {
+    border-color: var(--opera-switch-active-color-hover);
+}
+
+input[type=radio]:checked:active {
+    border-color: var(--opera-switch-active-color-pressed);
+}
+
+input[type=radio]::after {
+    background-color: transparent;
+    transition: border-color 200ms, transform 200ms;
+
+    content: ''; /* Requited for element to show */
+    display: block;
+    position: absolute;
+    top: calc(-1 * var(--cr-radio-button-border-width));
+    left: calc(-1 * var(--cr-radio-button-border-width));
+
+    box-shadow: none;
+    border-radius: 50%;
+    height: var(--cr-radio-button-size);
+    width: var(--cr-radio-button-size);
+
+    /* 16: origin 6, shift -2 */
+    /* 20: */
+
+    transform: scale(0);
+    transform-origin: center;
+
+}
+
+input[type=radio]:checked::after {
+    background-color: var(--opera-switch-active-color);
+    transform: scale(0.5);
+}
+
+/* ==== Button, Text, Number ==== */
+
+button,
+input[type=button] {
+    cursor: pointer;
+}
+
+button,
+input[type=button],
+input[type=number],
+input[type=text] {
+    background-color: var(--opera-input-background-color);
+    color: var(--opera-button-font-color);
+    border: var(--opera-input-border-width) solid var(--opera-button-border-color);
+    border-radius: var(--opera-input-border-radius);
+    outline: none;
+    font-family: var(--opera-font-family);
+    font-size: var(--opera-input-font-size);
+    font-weight: var(--opera-default-font-weight);
+
+    height: var(--opera-input-height);
+    margin: 0;
+    padding: var(--opera-input-padding);
+
+    flex-shrink: 0;
+}
+
+button.confirm {
+    background-color: var(--opera-primary-button-background-color);
+    border-color: var(--opera-primary-button-border-color);
+    color: var(--opera-primary-button-font-color);
+}
+
+button:hover,
+input[type=button]:hover,
+input[type=number]:hover,
+input[type=text]:hover,
+select:hover {
+    background-color: var(--opera-input-background-color-hover);
+    border-color: var(--opera-button-border-color-hover);
+}
+
+button.confirm:hover {
+    background-color: var(--opera-primary-button-background-color-hover);
+    border-color: var(--opera-primary-button-border-color-hover);
+}
+
+button:active,
+input[type=button]:active,
+select:active {
+    background-color: var(--opera-input-background-color-pressed);
+    border-color: var(--opera-button-border-color);
+    box-shadow:
+        0 1px 2px 0 rgba(60, 64, 67, 0.30),
+        0 3px 6px 2px rgba(60, 64, 67, 0.15);
+}
+
+input[type=number],
+input[type=text] {
+    padding-top: 0;
+    padding-bottom: 0;
+    box-sizing: border-box;
+}
+
+input[type=number] {
+    width: 8em;
+    font-variant-numeric: tabular-nums;
+}
+
+input[type=text] {
+    width: 14em;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+
+    position: relative;
+    top: 0;
+    right: -15px;
+    width: 16px;
+    height: var(--opera-input-height);
+
+    background: var(--spinner-arrows-image) right center no-repeat;
+    cursor: pointer;
+}
+
+input[type=number]::-webkit-inner-spin-button:hover  {
+    background-color: var(--spinner-background-color-hover);
+}
+
+/* ==== Row Button ==== */
+
+.settings-row > .input:only-child button {
+    background-color: transparent;
+    border: none;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+
+    height: auto;
+    min-height: var(--settings-row-min-height);
+    margin: 0;
+    padding: 0 20px;
+}
+
+.settings-row > .input:only-child button::after {
+    content: '';
+    user-select: none;
+
+    background-image: url('arrow_right.svg');
+    background-size: var(--cr-icon-size);
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+
+    display: block;
+
+    width: var(--cr-icon-ripple-size);
+    height: var(--cr-icon-ripple-size);
+    -webkit-margin-start: 16px;
+    -webkit-margin-end: 6px;
+
+    flex-shrink: 0;
+}
+
+.settings-row > .input:only-child button:focus {
+    box-shadow: none;
+}
+
+.settings-row > .input:only-child button:focus::after {
+    box-shadow: var(--opera-focus_-_box-shadow);
+    transition: var(--opera-focus_-_transition);
+}
+
+/* ==== Select ==== */
+
+select {
+    -webkit-appearance: none;
+
+    background: url("arrow_down.svg") calc(100% - 12px) no-repeat;
+    background-color: var(--opera-input-background-color);
+    background-size: 10px;
+
+    border: var(--opera-input-border-width) solid var(--opera-input-border-color);
+    border-radius: var(--opera-input-border-radius);
+
+    height: var(--opera-input-height);
+    width: auto;
+    margin-left: 12px;
+    padding: var(--opera-input-padding);
+    padding-right: 40px;
+    padding-top: 5px;
+
+    font-family: var(--opera-font-family);
+    font-size: var(--opera-input-font-size);
+    font-weight: var(--opera-default-font-weight);
+    color: var(--opera-font-color);
+    cursor: pointer;
+}
+
+/* ==== Textarea ==== */
+
+.input.textarea {
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+
+.input.textarea textarea {
+    box-sizing: border-box;
+    width: calc(100% - 20px);
+    max-height: 30vh;
+    padding: var(--opera-input-padding);
+    margin: 0 20px;
+
+    background-color: var(--opera-input-background-color);
+    border: var(--opera-input-border-width) solid var(--opera-input-border-color);
+    border-radius: var(--opera-input-border-radius);
+
+    font-size: var(--opera-input-font-size);
+    color: var(--opera-font-color);
+}
+
+/* ==== Slider ==== */
+
+output {
+    margin-inline-end: 8px;
+    margin-inline-start: 20px;
+    font-variant-numeric: tabular-nums;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+
+    background: transparent;
+    cursor: pointer;
+
+    width: 13.3em;
+
+    --slider-thumb-size: 18px;
+    --slider-track-size: 10px;
+}
+
+input[type=range]:focus {
+    box-shadow: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    box-sizing: border-box;
+    width: 100%;
+    height: var(--slider-track-size);
+
+    background: var(--opera-background-color);
+    border: var(--opera-input-border-width) solid var(--opera-separator-color);
+    border-radius: calc(var(--slider-track-size) / 2);
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: var(--slider-thumb-size);
+    height: var(--slider-thumb-size);
+    border-radius: 50%;
+
+    position: relative;
+    top: calc((var(--slider-track-size) - var(--slider-thumb-size)) / 2 - var(--opera-input-border-width));
+
+    background-color: var(--opera-switch-active-color);
+}
+
+input[type=range]:focus::-webkit-slider-thumb {
+    box-shadow: var(--opera-focus_-_box-shadow);
+    transition: var(--opera-focus_-_transition);
+}

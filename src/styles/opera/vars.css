@@ -1,0 +1,156 @@
+/* chrome://op-resources/toolkit/styleguide/vars.css */
+
+/* Defaults (light theme) */
+
+:root,
+:host {
+  --opera-blue: #0199ff;
+  --opera-blue-hover: #008ae6;
+  --opera-blue-pressed: #0077e6;
+  --opera-red: #f54a4b;
+
+  --opera-logo-size: 32px;
+  --opera-menu-item-height: 32px;
+  --opera-navbar-width: 40px;
+  --opera-section-spacing: 60px;
+
+  --opera-header-height: 64px;
+  --opera-header-padding: 16px 30px;
+  --opera-header-title-padding: 0 0 0 44px;
+  --opera-header-font-size: 17px;
+  --opera-header-font-weight: 450;
+
+  --opera-default-font-weight: 500;
+  /*  /*   */
+
+  --opera-default-font-size: 13px;
+  --opera-headline-font-size: 36px;
+
+  --opera-section-font-size: 15px;
+  --opera-section-font-weight: 500;
+  --opera-section-margin: 26px 0 12px 0;
+
+  --opera-background-color: #f5f5f7;
+  --opera-secondary-background-color: #ffffff;
+
+  --opera-tile-background-color: #ffffff;
+  --opera-tile-text-color: #000000;
+
+  --opera-separator-color: #e6e6e6;
+
+  --opera-focus-outline-color: rgba(1, 153, 255, .4);
+
+  --opera-font-family: system-ui;
+  --opera-font-color: #121314;
+  --opera-secondary-font-color: #6a6a75;
+  --opera-prompt-font-color: rgb(118, 118, 118);
+
+  --opera-article-font-size: 16px;
+  --opera-article-font-weight: 600;
+
+  --opera-input-background-color: #ffffff;
+  --opera-input-background-color-hover: #fafafa;
+  --opera-input-background-color-pressed: #ededed;
+  --opera-input-font-size: 13px;
+  --opera-input-border-color: #cdcdd4;
+  --opera-input-border-radius: 3px;
+  --opera-input-border-width: 1px;
+  --opera-input-padding: 7px 15px;
+  --opera-input-height: 32px;
+  --opera-rounded-input-border-radius: 16px;
+
+  --opera-search-icon-color: var(--opera-secondary-font-color);
+  --opera-search-background-size: 16px;
+  --opera-search-padding: 7px 36px 7px 15px;
+
+  --opera-button-font-color: var(--opera-font-color);
+  --opera-button-background-color: var(--opera-input-background-color);
+  --opera-button-border-color: var(--opera-input-border-color);
+  --opera-button-padding: 6px 12px;
+
+  --opera-primary-button-font-color: #fff;
+  --opera-primary-button-background-color: var(--opera-blue);
+  --opera-primary-button-background-color-hover: var(--opera-blue-hover);
+  --opera-primary-button-background-color-pressed: var(--opera-blue-pressed);
+  --opera-primary-button-border-color: #0084ff;
+  --opera-primary-button-padding: 6px 16px;
+
+  --opera-switch-color: #ceced4;
+  --opera-switch-color-hover: #bcbcc6;
+  --opera-switch-color-pressed: #ceced4;
+  --opera-switch-active-color: var(--opera-blue);
+  --opera-switch-active-color-hover: var(--opera-blue-hover);
+  --opera-switch-active-color-pressed: var(--opera-blue-pressed);
+  --opera-switch-toggle-color: #fff;
+  --opera-switch-height: 20px;
+  --opera-switch-width: 40px;
+
+  --opera-pad-border-radius: 5px;
+  --opera-pad-padding: 20px;
+  --opera-pad-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.04);
+  --opera-box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.24);
+
+  --opera-link-color: rgba(0, 122, 204, 1);
+  --opera-link-hover-background-color: rgba(0, 122, 204,.08);
+  --opera-link-focus-background-color: rgba(0, 122, 204,.24);
+
+  --opera-text-line-height: 1.5;
+
+  --opera-navbar-background-color: #ffffff;
+  --opera-navbar-separator-color: #e6e6e6;
+  --opera-navbar-width: 40px;
+
+  --opera-progress-border-radius: 3px;
+  --opera-progress-bar-color: #0199ff;
+  --opera-progress-bar-secondary-color: #5dbae9;
+  --opera-progress-background-color: rgb(231, 231, 231);
+}
+
+/* Dark theme */
+
+:root.dark-theme,
+:host-context(.dark-theme) {
+  --opera-blue: #45b0e6;
+  --opera-blue-hover: #49baf2;
+  --opera-blue-pressed: #3d9ccc;
+  --opera-red: #ff776c;
+
+  --opera-background-color: #121314;
+  --opera-secondary-background-color: #1c1d1f;
+
+  --opera-tile-background-color: #3d3d3d;
+  --opera-tile-text-color: #f0f0f0;
+
+  --opera-separator-color: #333435;
+
+  --opera-focus-outline-color: rgba(69, 176, 230, .48);
+
+  --opera-font-color: #fafafa;
+  --opera-secondary-font-color: #a8abad;
+  --opera-prompt-font-color: #fafafa;
+
+  --opera-input-background-color: #3d4042;
+  --opera-input-border-color: #404547;
+  --opera-input-background-color-hover: #494c4f;
+  --opera-input-background-color-pressed: #262729;
+
+  --opera-switch-color: #3d4042;
+  --opera-switch-color-hover: #494c4f;
+  --opera-switch-color-pressed: #3d4042;
+
+  --opera-pad-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.25);
+
+  --opera-primary-button-font-color: var(--opera-font-color);
+  --opera-primary-button-border-color: #4993b8;
+
+  --opera-navbar-background-color: #171819;
+  --opera-navbar-separator-color: #000000;
+
+  --opera-link-color: #96ddff;
+  --opera-link-hover-background-color: rgba(150, 221, 255, .24);
+  --opera-link-focus-background-color: rgba(150, 221, 255, .48);
+
+  --opera-progress-bar-color: rgb(69, 176, 230);
+  --opera-progress-bar-secondary-color: rgb(120, 198, 237);
+  --opera-progress-background-color: rgb(43, 43, 43);
+}

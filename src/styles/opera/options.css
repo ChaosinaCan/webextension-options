@@ -1,0 +1,153 @@
+@import "vars.css";
+@import "extra_vars.css";
+@import "modal.css";
+@import "inputs.css";
+
+html {
+    --content-width: 680px;
+}
+
+@media (max-width: 700px) {
+    html {
+        --content-width: 100%;
+    }
+
+    header {
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+    }
+
+    main {
+        padding: 0 10px;
+    }
+}
+
+body {
+    color: var(--opera-font-color);
+    background-color: var(--opera-background-color);
+    font-family: var(--opera-font-family);
+    font-size: var(--opera-default-font-size);
+    font-weight: var(--opera-default-font-weight);
+
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: var(--opera-secondary-background-color);
+    color: var(--opera-font-color);
+    border-bottom: 1px solid var(--opera-separator-color);
+
+    width: 100%;
+    min-height: var(--opera-header-height);
+    padding: var(--opera-header-padding);
+    padding-left: calc((100% - var(--content-width)) / 2);
+    padding-right: calc((100% - var(--content-width)) / 2);
+
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: none;
+}
+
+header h1 {
+    font-size: var(--opera-header-font-size);
+    font-family: var(--opera-font-family);
+    font-weight: var(--opera-font-weight);
+}
+
+header img {
+    width: 32px;
+    height: 32px;
+    padding-inline-end: 12px;
+}
+
+main {
+    overflow: auto; /* TODO: style scrollbar and change to overlay */
+    width: 100%;
+    box-sizing: border-box;
+    padding-bottom: 60px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    margin-block-start: 3px;
+    margin-block-end: 3px;
+
+    box-sizing: border-box;
+    width: var(--content-width);
+    flex: none;
+}
+
+h2 {
+    padding: 8px 0 4px;
+    margin: 45px 0 12px;
+
+    font-size: var(--opera-section-font-size);
+    font-weight: var(--opera-section-font-weight);
+}
+
+.secondary {
+    color: var(--opera-secondary-font-color);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--opera-secondary-background-color);
+    border: solid 1px var(--opera-separator-color);
+    border-radius: var(--opera-pad-border-radius);
+    box-shadow: var(--opera-pad-shadow);
+}
+
+.settings-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    border-top: 1px solid var(--opera-separator-color);
+    min-height: var(--settings-row-min-height);
+    padding: 0;
+}
+
+.settings-row:first-of-type {
+    border-top: none;
+}
+
+.expand > .settings-row {
+    margin-inline-start: 60px;
+}
+
+.settings-row > span:not(:last-child) {
+    margin-inline-end: var(--settings-control-label-spacing);
+}
+
+/*
+Radio group items don't have separator lines, so add a line to the last sub-row
+of a radio item to separate it from the next item.
+*/
+.radio-group .expand > .settings-row:last-child {
+    border-bottom: 1px solid var(--opera-separator-color);
+}

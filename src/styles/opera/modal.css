@@ -1,0 +1,69 @@
+@import "vars.css";
+@import "extra_vars.css";
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9998;
+
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+    width: 512px;
+    height: fit-content;
+    max-width: var(--cr-dialog-native_-_max-width);
+    max-height: 100vh;
+    padding: 0;
+    margin: auto;
+    overflow: auto;
+
+    background-color: var(--cr-dialog-native_-_background-color);
+    color: var(--cr-dialog-native_-_color);
+
+    border: var(--cr-dialog-native_-_border);
+    border-radius: var(--cr-dialog-native_-_border-radius);
+    box-shadow: var(--cr-dialog-native_-_box-shadow);
+}
+
+.modal:focus {
+    outline: none;
+}
+
+.modal h1 {
+    padding: 20px 20px 16px;
+    margin: 0;
+
+    font-size: calc(15 / 13 * 100%);
+    line-height: 1;
+}
+
+.modal p {
+    padding: 0 20px;
+    margin: 0;
+
+    color: var(--opera-secondary-font-color);
+}
+
+.modal .button-container {
+    padding: 24px 16px 16px;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal button {
+    margin-inline-end: 8px;
+}
