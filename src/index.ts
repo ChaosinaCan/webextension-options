@@ -2,6 +2,7 @@ export * from './components/BaseNumber';
 export * from './components/BaseText';
 export * from './components/Checkbox';
 export * from './components/Expand';
+export * from './components/InfoRow';
 export * from './components/Number';
 export * from './components/OptionalLabel';
 export * from './components/RadioGroup';

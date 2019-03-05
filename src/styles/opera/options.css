@@ -106,7 +106,23 @@ h2 {
     font-weight: var(--opera-section-font-weight);
 }
 
+a {
+    color: var(--opera-link-color);
+}
+
+a:hover {
+    background-color: var(--opera-link-hover-background-color);
+}
+
+a:focus {
+    background-color: var(--opera-link-focus-background-color);
+}
+
 .secondary {
+    color: var(--opera-secondary-font-color);
+}
+
+code {
     color: var(--opera-secondary-font-color);
 }
 
@@ -150,4 +166,26 @@ of a radio item to separate it from the next item.
 */
 .radio-group .expand > .settings-row:last-child {
     border-bottom: 1px solid var(--opera-separator-color);
+}
+
+.info-row {
+    display: block;
+    padding: 0 20px;
+}
+
+.settings-row h1,
+.settings-row h2,
+.settings-row h3,
+.settings-row h4,
+.settings-row h5,
+.settings-row h6 {
+    font-weight: var(--opera-section-font-weight);
+}
+
+.settings-row p {
+    color: var(--opera-secondary-font-color);
+}
+
+.settings-row p:last-child {
+    margin-block-end: 1.33em;
 }

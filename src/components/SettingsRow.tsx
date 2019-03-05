@@ -6,7 +6,7 @@ interface SettingsRowProps {
 
 export const SettingsRow: React.FunctionComponent<SettingsRowProps> = (props) => {
     return (
-        <div className={`settings-row ${props.className}`}>
+        <div className={`settings-row ${props.className || ''}`}>
             {props.children}
         </div>
     );
