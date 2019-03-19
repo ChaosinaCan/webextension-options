@@ -5,12 +5,17 @@ import { inputId, useStore } from './Utils';
 import { OptionalLabel } from './OptionalLabel';
 
 export interface BaseTextProps extends React.InputHTMLAttributes<HTMLInputElement> {
-    // type: 'search' | 'tel' | 'text' | 'url';
+    /** Accessor for the setting to bind to. */
     accessor: IStorageAccessor<string>;
+    /** Text label for the input field. */
     label?: string;
+    /** Secondary text with a more detailed description of the setting. */
     description?: string;
 }
 
+/**
+ * Generic text input field
+ */
 export const BaseText: React.FunctionComponent<BaseTextProps> = (props) => {
     const {type, accessor, label, description, ...inputProps} = props;
 

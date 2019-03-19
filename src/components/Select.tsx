@@ -5,11 +5,17 @@ import { inputId, useStore } from './Utils';
 import { OptionalLabel } from './OptionalLabel';
 
 export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+    /** Accessor for the setting to bind to. */
     accessor: IStorageAccessor<string>;
+    /** Text label for the input field. */
     label?: string;
+    /** Secondary text with a more detailed description of the setting. */
     description?: string;
 }
 
+/**
+ * Drop-down selection input.
+ */
 export const Select: React.FunctionComponent<SelectProps> = (props) => {
     const { accessor, label, description, ...selectProps } = props;
 

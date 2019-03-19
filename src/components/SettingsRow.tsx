@@ -4,6 +4,9 @@ interface SettingsRowProps {
     className?: string;
 }
 
+/**
+ * Row that contains a setting.
+ */
 export const SettingsRow: React.FunctionComponent<SettingsRowProps> = (props) => {
     return (
         <div className={`settings-row ${props.className || ''}`}>
@@ -11,3 +14,5 @@ export const SettingsRow: React.FunctionComponent<SettingsRowProps> = (props) =>
         </div>
     );
 }
+
+export default SettingsRow;

@@ -140,9 +140,9 @@ input[type=checkbox]:checked::after {
     flex-direction: row;
     align-items: center;
 
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 12px 20px;
     min-height: var(--settings-row-min-height);
+    box-sizing: border-box;
 }
 
 input[type=radio] {

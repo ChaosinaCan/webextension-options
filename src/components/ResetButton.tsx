@@ -104,6 +104,13 @@ function useOneOrAllText(props: ResetButtonProps, propText: string | undefined, 
     }, [props.accessor, props.storage, propText, oneText, allText])
 }
 
+/**
+ * Button which resets a setting or all settings to their default values when
+ * pressed, with an optional confirmation dialog.
+ *
+ * Set `props.storage` to reset all settings in the storage area, or set
+ * `props.accessor` to reset a single setting.
+ */
 export const ResetButton: React.FunctionComponent<ResetButtonProps> = (props) => {
     const [isModalOpen, setModalOpen] = useState(false);
 

@@ -1,9 +1,12 @@
 import * as React from 'react';
 
-interface InfoRowProps {
+export interface InfoRowProps {
     className?: string;
 }
 
+/**
+ * Row that displays text or other information instead of a setting.
+ */
 export const InfoRow: React.FunctionComponent<InfoRowProps> = (props) => {
     return (
         <div className={`settings-row info-row ${props.className || ''}`}>
@@ -11,3 +14,5 @@ export const InfoRow: React.FunctionComponent<InfoRowProps> = (props) => {
         </div>
     );
 }
+
+export default InfoRow;

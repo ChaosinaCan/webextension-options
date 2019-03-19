@@ -6,11 +6,17 @@ import { inputId, useStore } from './Utils';
 import { OptionalLabel } from './OptionalLabel';
 
 export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+    /** Accessor for the setting to bind to. */
     accessor: IStorageAccessor<string>;
+    /** Text label for the input field. */
     label?: string;
+    /** Secondary text with a more detailed description of the setting. */
     description?: string;
 }
 
+/**
+ * Multi-line text input field.
+ */
 export const TextArea: React.FunctionComponent<TextAreaProps> = (props) => {
     const { accessor, label, description, ...textAreaProps } = props;
 

@@ -6,14 +6,27 @@ import { inputId, useStoreGet, useStoreSet, useStoreChanged } from './Utils';
 import { OptionalLabel } from './OptionalLabel';
 
 export interface BaseNumberProps extends React.InputHTMLAttributes<HTMLInputElement> {
+    /** Accessor for the setting to bind to. */
     accessor: IStorageAccessor<number>;
+    /** Text label for the input field. */
     label?: string;
+    /** Secondary text with a more detailed description of the setting. */
     description?: string;
+
+    /** The minimum value to accept. */
+    min?: number | string;
+    /** The minimum value to accept. */
+    max?: number | string;
+    /** Stepping interval to use when adjusting the value. */
+    step?: number | 'any';
 
     /** Display the current value next to the field? */
     showValue?: boolean;
 }
 
+/**
+ * Generic number input field.
+ */
 export const BaseNumber: React.FunctionComponent<BaseNumberProps> = (props) => {
     const { type, accessor, label, description, showValue, ...inputProps } = props;
 
@@ -59,7 +72,6 @@ export const BaseNumber: React.FunctionComponent<BaseNumberProps> = (props) => {
         }
     }
 
-    // TODO: fix formatting on <output> string.
     return (
         <span className="input number browser-style">
             <OptionalLabel id={id} text={label} subtext={description} />
