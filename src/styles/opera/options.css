@@ -118,6 +118,22 @@ a:focus {
     background-color: var(--opera-link-focus-background-color);
 }
 
+a[rel~=external]::before {
+    content: '';
+    display: inline-block;
+    vertical-align: text-top;
+
+    width: 12px;
+    height: 12px;
+    margin-right: 2px;
+    margin-top: 3px;
+
+    background-image: var(--external-link-image);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 .secondary {
     color: var(--opera-secondary-font-color);
 }
@@ -184,6 +200,10 @@ of a radio item to separate it from the next item.
 
 .settings-row p {
     color: var(--opera-secondary-font-color);
+}
+
+.settings-row strong {
+    color: var(--opera-font-color);
 }
 
 .settings-row p:last-child {

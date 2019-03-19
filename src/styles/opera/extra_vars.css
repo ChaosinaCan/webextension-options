@@ -26,7 +26,9 @@
     --opera-primary-button-background-color-hover: #008ae6;
 
     --spinner-background-color-hover: rgba(0, 0, 0, 0.08);
-    --spinner-arrows-image: url('arrow_up_down_light.svg');
+    --spinner-arrows-image: url('arrow_up_down.svg');
+
+    --external-link-image: url('open_in_new.svg');
 }
 
 /* Dark theme */
@@ -40,4 +42,6 @@
 
     --spinner-background-color-hover: rgba(0, 0, 0, 0.15);
     --spinner-arrows-image: url('arrow_up_down_dark.svg');
+
+    --external-link-image: url('open_in_new_dark.svg');
 }
