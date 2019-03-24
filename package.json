@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Joel Spadin <joelspadin@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@spadin/webextension-plural": "^1.0.0",
     "@spadin/webextension-storage": "^1.0.0",
