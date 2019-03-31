@@ -26,9 +26,7 @@
     height: fit-content;
     max-width: var(--cr-dialog-native_-_max-width);
     max-height: 100vh;
-    padding: 0;
     margin: auto;
-    overflow: auto;
 
     background-color: var(--cr-dialog-native_-_background-color);
     color: var(--cr-dialog-native_-_color);
@@ -42,8 +40,20 @@
     outline: none;
 }
 
+.modal main {
+    padding: 0 20px;
+
+    overflow: auto;
+}
+
+.modal footer {
+    padding: 24px 16px 16px;
+
+    text-align: right;
+}
+
 .modal h1 {
-    padding: 20px 20px 16px;
+    padding: 20px 0 16px;
     margin: 0;
 
     font-size: calc(15 / 13 * 100%);
@@ -51,19 +61,11 @@
 }
 
 .modal p {
-    padding: 0 20px;
     margin: 0;
 
     color: var(--opera-secondary-font-color);
 }
 
-.modal .button-container {
-    padding: 24px 16px 16px;
-
-    display: flex;
-    justify-content: flex-end;
-}
-
 .modal button {
-    margin-inline-end: 8px;
+    margin-inline-start: 8px;
 }

@@ -8,7 +8,7 @@ import plural from '@spadin/webextension-plural';
  * @param message The name of the message to localize.
  * @param substitutions Parameters to substitute into the message.
  */
-export function useMessage(message: string, ...substitutions: any[]) {
+export function useMessage(message: string, ...substitutions: readonly any[]) {
     return useMemo(() => {
         return browser.i18n.getMessage(message, substitutions);
     }, [substitutions]);
@@ -19,7 +19,7 @@ export interface PluralOptions {
      * A string or list of strings to insert into the message.
      * If omitted, `value` is passed as the only substitution parameter.
      */
-    substitutions?: any | any[];
+    substitutions?: any | readonly any[];
 
     /**
      * Set to `true` to use cardinal forms (1st, 2nd, 3rd, ...) instead of

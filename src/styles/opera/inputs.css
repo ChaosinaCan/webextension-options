@@ -27,6 +27,7 @@
     margin-right: 20px;
 }
 
+.input.button:not(:only-child),
 .input.reset:not(:only-child) {
     flex: 0;
 }

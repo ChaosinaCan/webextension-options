@@ -74,7 +74,7 @@ header img {
     padding-inline-end: 12px;
 }
 
-main {
+#app > main {
     overflow: auto; /* TODO: style scrollbar and change to overlay */
     width: 100%;
     box-sizing: border-box;

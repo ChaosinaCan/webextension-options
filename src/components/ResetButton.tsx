@@ -49,32 +49,111 @@ export interface ResetButtonProps {
     confirmCancelText?: string;
 }
 
+/**
+ * Button which resets a setting or all settings to their default values when
+ * pressed, with an optional confirmation dialog.
+ *
+ * Set `props.storage` to reset all settings in the storage area, or set
+ * `props.accessor` to reset a single setting.
+ */
+export const ResetButton: React.FunctionComponent<ResetButtonProps> = (props) => {
+    const [isModalOpen, setModalOpen] = useState(false);
+
+    const confirmTitle = useOneOrAllText(props, props.confirmTitle, ResetOneTitleText, ResetAllTitleText);
+    const confirmMessage = useOneOrAllText(props, props.confirmMessage, ResetOneMessageText, ResetAllMessageText);
+    const confirmResetText = useText(props.confirmResetText, ResetButtonText);
+    const confirmCancelText = useText(props.confirmCancelText, CancelButtonText);
+
+    const openModal = () => setModalOpen(true);
+    const closeModal = () => setModalOpen(false);
+
+    async function reset() {
+        if (props.accessor) {
+            await props.accessor.reset();
+        } else if (props.storage) {
+            await props.storage.resetAll();
+        } else {
+            throw new Error('Either accessor or storage must be set');
+        }
+    }
+
+    async function handleResetClick() {
+        if (props.confirm) {
+            openModal();
+        } else {
+            await reset();
+        }
+    }
+
+    async function handleConfirmClick() {
+        closeModal();
+        await reset();
+    }
+
+    return (
+        <span className="input reset browser-style">
+            <button onClick={handleResetClick}>
+                {props.label}
+            </button>
+            <Modal
+                contentLabel="Reset setting"
+                isOpen={isModalOpen}
+                onAfterOpen={openModal}
+                onRequestClose={closeModal}
+                className="modal"
+                overlayClassName="modal-overlay"
+                >
+                <main>
+                    <h1>{confirmTitle}</h1>
+                    <p>{confirmMessage}</p>
+                </main>
+                <footer>
+                    <button
+                        className='cancel'
+                        onClick={closeModal}
+                        >
+                        {confirmCancelText}
+                    </button>
+                    <button
+                        className='confirm'
+                        onClick={handleConfirmClick}
+                        >
+                        {confirmResetText}
+                    </button>
+                </footer>
+            </Modal>
+        </span>
+    );
+}
+
+export default ResetButton;
+
 interface TextItem {
     message: string;
     fallback: string;
 }
 
-const ResetOneTitleText = {
+const ResetOneTitleText: TextItem = {
     message: '@options_reset_title',
     fallback: 'Reset setting',
 };
-const ResetOneMessageText =  {
+const ResetOneMessageText: TextItem =  {
     message: '@options_reset_message',
     fallback: 'Reset this setting to its default value?',
 };
-const ResetAllTitleText = {
+const ResetAllTitleText: TextItem = {
     message: '@options_reset_all_title',
     fallback: 'Reset all settings',
 };
-const ResetAllMessageText = {
+const ResetAllMessageText: TextItem = {
     message: '@options_reset_all_message',
     fallback: 'Reset all settings to their default values?',
 };
-const ResetButtonText = {
+const ResetButtonText: TextItem = {
     message: '@options_reset_button',
     fallback: 'Reset',
 };
-const CancelButtonText = {
+const CancelButtonText: TextItem = {
     message: '@options_cancel_button',
     fallback: 'Cancel',
 };
@@ -103,85 +182,3 @@ function useOneOrAllText(props: ResetButtonProps, propText: string | undefined, 
         }
     }, [props.accessor, props.storage, propText, oneText, allText])
 }
-
-/**
- * Button which resets a setting or all settings to their default values when
- * pressed, with an optional confirmation dialog.
- *
- * Set `props.storage` to reset all settings in the storage area, or set
- * `props.accessor` to reset a single setting.
- */
-export const ResetButton: React.FunctionComponent<ResetButtonProps> = (props) => {
-    const [isModalOpen, setModalOpen] = useState(false);
-
-    const confirmTitle = useOneOrAllText(props, props.confirmTitle, ResetOneTitleText, ResetAllTitleText);
-    const confirmMessage = useOneOrAllText(props, props.confirmMessage, ResetOneMessageText, ResetAllMessageText);
-    const confirmResetText = useText(props.confirmResetText, ResetButtonText);
-    const confirmCancelText = useText(props.confirmCancelText, CancelButtonText);
-
-    async function reset() {
-        if (props.accessor) {
-            await props.accessor.reset();
-        } else if (props.storage) {
-            await props.storage.resetAll();
-        } else {
-            throw new Error('Either accessor or storage must be set');
-        }
-    }
-
-    async function handleResetClick() {
-        if (props.confirm) {
-            handleModalOpen();
-        } else {
-            await reset();
-        }
-    }
-
-    async function handleConfirmClick() {
-        handleModalClose();
-        await reset();
-    }
-
-    function handleModalOpen() {
-        setModalOpen(true);
-    }
-
-    function handleModalClose() {
-        setModalOpen(false);
-    }
-
-    return (
-        <span className="input reset browser-style">
-            <button onClick={handleResetClick}>
-                {props.label}
-            </button>
-            <Modal
-                contentLabel="Reset setting"
-                isOpen={isModalOpen}
-                onAfterOpen={handleModalOpen}
-                onRequestClose={handleModalClose}
-                className="modal"
-                overlayClassName="modal-overlay"
-                >
-                <h1>{confirmTitle}</h1>
-                <p>{confirmMessage}</p>
-                <div className="button-container">
-                    <button
-                        className='cancel'
-                        onClick={handleModalClose}
-                        >
-                        {confirmCancelText}
-                    </button>
-                    <button
-                        className='confirm'
-                        onClick={handleConfirmClick}
-                        >
-                        {confirmResetText}
-                    </button>
-                </div>
-            </Modal>
-        </span>
-    );
-}
-
-export default ResetButton;
