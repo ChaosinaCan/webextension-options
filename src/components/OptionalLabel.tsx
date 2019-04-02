@@ -25,6 +25,4 @@ export const OptionalLabel: React.FunctionComponent<OptionalLabelProps> = (props
             }
         </label>
     );
-}
-
-
+};

@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { browser } from 'webextension-polyfill-ts';
+
 import plural from '@spadin/webextension-plural';
 
 /**

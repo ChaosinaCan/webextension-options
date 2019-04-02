@@ -19,4 +19,4 @@ export const SettingsSection: React.FunctionComponent<SettingsSectionProps> = (p
             </div>
         </section>
     );
-}
+};

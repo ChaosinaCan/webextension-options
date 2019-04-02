@@ -1,8 +1,9 @@
 import * as React from 'react';
+
 import { IStorageAccessor } from '@spadin/webextension-storage';
 
-import { inputId, useStore } from './Utils';
 import { OptionalLabel } from './OptionalLabel';
+import { inputId, useStore } from './Utils';
 
 export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
     /** Accessor for the setting to bind to. */
@@ -33,4 +34,4 @@ export const Checkbox: React.FunctionComponent<CheckboxProps> = (props) => {
                 />
         </span>
     );
-}
+};

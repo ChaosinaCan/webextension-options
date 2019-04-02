@@ -13,6 +13,6 @@ export const InfoRow: React.FunctionComponent<InfoRowProps> = (props) => {
             {props.children}
         </div>
     );
-}
+};
 
 export default InfoRow;

@@ -1,8 +1,9 @@
 import * as React from 'react';
+
 import { IStorageAccessor } from '@spadin/webextension-storage';
 
-import { inputId, useStore } from './Utils';
 import { OptionalLabel } from './OptionalLabel';
+import { inputId, useStore } from './Utils';
 
 export interface BaseTextProps extends React.InputHTMLAttributes<HTMLInputElement> {
     /** Accessor for the setting to bind to. */
@@ -22,7 +23,6 @@ export const BaseText: React.FunctionComponent<BaseTextProps> = (props) => {
     const [value, setValue] = useStore(accessor, '');
     const id = inputId(accessor);
 
-
     return (
         <span className="input text browser-style">
             <OptionalLabel id={id} text={label} subtext={description} />
@@ -34,6 +34,6 @@ export const BaseText: React.FunctionComponent<BaseTextProps> = (props) => {
                 />
         </span>
     );
-}
+};
 
 export default BaseText;

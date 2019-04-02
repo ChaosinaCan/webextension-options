@@ -2,22 +2,16 @@ import * as React from 'react';
 
 import { BaseNumber, BaseNumberProps } from './BaseNumber';
 
-export interface NumberProps extends BaseNumberProps {
-}
+export type NumberProps = BaseNumberProps;
 
 /**
  * Number field with text input and up/down buttons.
  */
-export class Number extends React.Component<NumberProps> {
-    constructor(props: Readonly<NumberProps>) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <BaseNumber type="number" {...this.props} />
-        );
-    }
-}
+// tslint:disable-next-line: variable-name
+export const Number: React.FunctionComponent<NumberProps> = (props) => {
+    return (
+        <BaseNumber type="number" {...props} />
+    );
+};
 
 export default Number;

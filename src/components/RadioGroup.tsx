@@ -1,6 +1,7 @@
 import * as React from 'react';
+import { Radio as ReactRadio, RadioGroup as ReactRadioGroup } from 'react-radio-group';
+
 import { IStorageAccessor } from '@spadin/webextension-storage';
-import { RadioGroup as ReactRadioGroup, Radio as ReactRadio } from 'react-radio-group';
 
 import { inputId, useStore } from './Utils';
 
@@ -20,8 +21,8 @@ export const Radio: React.FunctionComponent<RadioProps> = (props) => {
                 {props.children}
             </span>
         </label>
-    )
-}
+    );
+};
 
 export interface RadioGroupProps {
     /** Accessor for the setting to bind to. */
@@ -53,5 +54,5 @@ export const RadioGroup: React.FunctionComponent<RadioGroupProps> = (props) => {
                 {props.children}
             </ReactRadioGroup>
         </fieldset>
-    )
-}
+    );
+};

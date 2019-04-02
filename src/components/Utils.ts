@@ -1,4 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+
 import { IStorageAccessor, StorageListener } from '@spadin/webextension-storage';
 
 /**
@@ -41,7 +42,7 @@ export function useStoreChanged<T>(accessor: IStorageAccessor<T>, callback: Stor
         // cleanup
         return () => {
             accessor.removeListener(callback);
-        }
+        };
     }, [accessor]);
 }
 

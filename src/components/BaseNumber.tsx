@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { useState } from 'react';
+
 import { IStorageAccessor } from '@spadin/webextension-storage';
 
-import { inputId, useStoreGet, useStoreSet, useStoreChanged } from './Utils';
 import { OptionalLabel } from './OptionalLabel';
+import { inputId, useStoreChanged, useStoreGet, useStoreSet } from './Utils';
 
 export interface BaseNumberProps extends React.InputHTMLAttributes<HTMLInputElement> {
     /** Accessor for the setting to bind to. */
@@ -85,7 +86,7 @@ export const BaseNumber: React.FunctionComponent<BaseNumberProps> = (props) => {
                 {...inputProps}
                 />
         </span>
-    )
-}
+    );
+};
 
 export default BaseNumber;

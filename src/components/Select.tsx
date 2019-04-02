@@ -1,8 +1,9 @@
 import * as React from 'react';
+
 import { IStorageAccessor } from '@spadin/webextension-storage';
 
-import { inputId, useStore } from './Utils';
 import { OptionalLabel } from './OptionalLabel';
+import { inputId, useStore } from './Utils';
 
 export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
     /** Accessor for the setting to bind to. */
@@ -35,6 +36,6 @@ export const Select: React.FunctionComponent<SelectProps> = (props) => {
                 </select>
             </span>
     );
-}
+};
 
 export default Select;

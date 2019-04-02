@@ -13,6 +13,6 @@ export const SettingsRow: React.FunctionComponent<SettingsRowProps> = (props) =>
             {props.children}
         </div>
     );
-}
+};
 
 export default SettingsRow;

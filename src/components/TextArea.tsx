@@ -1,9 +1,10 @@
 import * as React from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
+
 import { IStorageAccessor } from '@spadin/webextension-storage';
 
-import { inputId, useStore } from './Utils';
 import { OptionalLabel } from './OptionalLabel';
+import { inputId, useStore } from './Utils';
 
 export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
     /** Accessor for the setting to bind to. */
@@ -24,6 +25,7 @@ export const TextArea: React.FunctionComponent<TextAreaProps> = (props) => {
     const id = inputId(accessor);
 
     function removeConflictingProps() {
+        // tslint:disable-next-line: no-shadowed-variable
         const { value, ...props } = textAreaProps;
         return props;
     }
@@ -39,6 +41,6 @@ export const TextArea: React.FunctionComponent<TextAreaProps> = (props) => {
                 />
         </span>
     );
-}
+};
 
 export default TextArea;

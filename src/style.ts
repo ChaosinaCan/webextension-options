@@ -37,4 +37,3 @@ export function applyStyle(browser?: BrowserStyle) {
         break;
     }
 }
-

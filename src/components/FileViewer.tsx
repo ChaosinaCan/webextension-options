@@ -1,7 +1,8 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { browser } from 'webextension-polyfill-ts';
-import { useState, useEffect } from 'react';
+
 import { useMessage } from '../i18n';
 
 /**
@@ -42,8 +43,8 @@ export interface FileViewerProps {
 const ModalStyle: Modal.Styles = {
     content: {
         width: 'fit-content',
-    }
-}
+    },
+};
 
 /**
  * Button which opens a window displaying the contents of a text file.
@@ -79,8 +80,8 @@ export const FileViewer: React.FunctionComponent<FileViewerProps> = (props) => {
                 </footer>
             </Modal>
         </span>
-    )
-}
+    );
+};
 
 interface TextItem {
     message: string;
@@ -88,8 +89,8 @@ interface TextItem {
 }
 
 const CloseButtonText: TextItem = {
-    message: '@options_close_button',
     fallback: 'Close',
+    message: '@options_close_button',
 };
 
 function useText(propText: string | undefined, text: TextItem) {

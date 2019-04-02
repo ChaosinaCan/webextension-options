@@ -1,7 +1,9 @@
 import * as React from 'react';
-import Modal from 'react-modal';
 import { useState } from 'react';
-import { StorageArea, IStorageAccessor } from '@spadin/webextension-storage';
+import Modal from 'react-modal';
+
+import { IStorageAccessor, StorageArea } from '@spadin/webextension-storage';
+
 import { useMessage } from '../i18n';
 
 export interface ResetButtonProps {
@@ -109,13 +111,13 @@ export const ResetButton: React.FunctionComponent<ResetButtonProps> = (props) =>
                 </main>
                 <footer>
                     <button
-                        className='cancel'
+                        className="cancel"
                         onClick={closeModal}
                         >
                         {confirmCancelText}
                     </button>
                     <button
-                        className='confirm'
+                        className="confirm"
                         onClick={handleConfirmClick}
                         >
                         {confirmResetText}
@@ -124,7 +126,7 @@ export const ResetButton: React.FunctionComponent<ResetButtonProps> = (props) =>
             </Modal>
         </span>
     );
-}
+};
 
 export default ResetButton;
 
@@ -134,28 +136,28 @@ interface TextItem {
 }
 
 const ResetOneTitleText: TextItem = {
-    message: '@options_reset_title',
     fallback: 'Reset setting',
+    message: '@options_reset_title',
 };
 const ResetOneMessageText: TextItem =  {
-    message: '@options_reset_message',
     fallback: 'Reset this setting to its default value?',
+    message: '@options_reset_message',
 };
 const ResetAllTitleText: TextItem = {
-    message: '@options_reset_all_title',
     fallback: 'Reset all settings',
+    message: '@options_reset_all_title',
 };
 const ResetAllMessageText: TextItem = {
-    message: '@options_reset_all_message',
     fallback: 'Reset all settings to their default values?',
+    message: '@options_reset_all_message',
 };
 const ResetButtonText: TextItem = {
-    message: '@options_reset_button',
     fallback: 'Reset',
+    message: '@options_reset_button',
 };
 const CancelButtonText: TextItem = {
-    message: '@options_cancel_button',
     fallback: 'Cancel',
+    message: '@options_cancel_button',
 };
 
 function useText(propText: string | undefined, text: TextItem) {
@@ -180,5 +182,5 @@ function useOneOrAllText(props: ResetButtonProps, propText: string | undefined, 
         } else {
             throw new Error('Either accessor or storage must be set');
         }
-    }, [props.accessor, props.storage, propText, oneText, allText])
+    }, [props.accessor, props.storage, propText, oneText, allText]);
 }

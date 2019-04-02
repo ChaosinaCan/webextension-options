@@ -17,5 +17,5 @@ export const Expand: React.FunctionComponent<ExpandProps> = (props) => {
         <div className={`expand ${props.className || ''}`} style={style}>
             {props.children}
         </div>
-    )
-}
+    );
+};
