@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import Modal from 'react-modal';
 
-import { IStorageAccessor, StorageArea } from '@spadin/webextension-storage';
+import { IStorageAccessor, IStorageArea } from '@spadin/webextension-storage';
 
 import { useMessage } from '../i18n';
 
@@ -16,7 +16,7 @@ export interface ResetButtonProps {
      * The storage area in which to reset all settings when clicked.
      * Mutually exclusive with `accessor`.
      */
-    storage?: StorageArea<any>;
+    storage?: IStorageArea<any>;
 
     /** Text to display on the button. */
     label: string;
