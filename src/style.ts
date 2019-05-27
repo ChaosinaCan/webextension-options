@@ -21,19 +21,19 @@ export function applyStyle(browser?: BrowserStyle) {
     switch (style) {
     // TODO: make these styles.
     //     case 'chrome':
-    //         require('./styles/chrome/options.css');
+    //         require('style-loader!css-loader!./styles/chrome/options.css');
     //         break;
 
     //     case 'edge':
-    //         require('./styles/edge/options.css');
+    //         require('style-loader!css-loader!./styles/edge/options.css');
     //         break;
 
     //     case 'firefox':
-    //         require('./styles/firefox/options.css');
+    //         require('style-loader!css-loader!./styles/firefox/options.css');
     //         break;
 
     case 'opera':
-        require('./styles/opera/options.css');
+        require('style-loader!css-loader!./styles/opera/options.css');
         break;
     }
 }
